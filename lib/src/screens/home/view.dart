@@ -19,10 +19,6 @@ class Home extends GetResponsiveView<RecoverController> {
           ? null
           : AppBar(
               iconTheme: const IconThemeData(color: Colors.white),
-              // title: Image.asset(
-              //   AssetPath.logo6,
-              //   width: Get.width * 0.3,
-              // ),
               backgroundColor: Get.theme.colorScheme.primaryContainer),
       backgroundColor: Colors.white,
       body: Obx(() => _display()),
@@ -111,14 +107,13 @@ class Home extends GetResponsiveView<RecoverController> {
             child: Stack(
               fit: StackFit.expand,
               children: [
-                //   const GridImage(),
                 _image(AssetPath.logo1),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const Spacer(),
                     Text(
-                      "Eliminar usario",
+                      'home_1'.tr,
                       style: Get.theme.textTheme.titleLarge,
                     ),
                   ],
@@ -126,26 +121,36 @@ class Home extends GetResponsiveView<RecoverController> {
               ],
             ),
           ),
-          // Text(
-          //   "Recuperar constraseña",
-          //   style: Get.theme.textTheme.titleLarge,
-          // ),
           const SizedBox(height: 10),
           Text(
-            "Introduzca su correo electrónico para eliminar todos sus datos",
+            'home_2'.tr,
             style: Get.theme.textTheme.titleMedium!
                 .copyWith(color: Get.theme.colorScheme.surface),
           ),
-          SizedBox(height: Get.height * 0.04),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              Spacer(),
+              ElevatedButton(
+                  onPressed: () {
+                    controller.dialogLanguage();
+                  },
+                  child: Icon(
+                    Icons.translate,
+                    color: Colors.white,
+                  )),
+            ],
+          ),
+          //   SizedBox(height: Get.height * 0.02),
           InputText(
-            name: "Dirección de correo electrónico",
+            name: 'home_3'.tr,
             textController: controller.emailC.value,
             controller: controller,
             onChanged: () => controller.enabledButton(),
           ),
           const SizedBox(height: 30),
           InputText(
-            name: "Contraseña",
+            name: 'home_4'.tr,
             textController: controller.passwordC.value,
             controller: controller,
             onChanged: () => controller.enabledButton(),
@@ -159,6 +164,7 @@ class Home extends GetResponsiveView<RecoverController> {
               tablet: 460,
               mobile: screen.width - 40,
             ),
+            text: 'home_5'.tr,
           ),
           SizedBox(height: Get.height * 0.03),
         ],
@@ -186,7 +192,7 @@ class Home extends GetResponsiveView<RecoverController> {
                   children: [
                     const Spacer(),
                     Text(
-                      "Correo electrónico verificado",
+                      'home_6'.tr,
                       style: Get.theme.textTheme.titleLarge,
                     ),
                   ],
@@ -196,7 +202,7 @@ class Home extends GetResponsiveView<RecoverController> {
           ),
           const SizedBox(height: 10),
           Text(
-            "Su usario a sido eliminado con éxito.",
+            'home_7'.tr,
             style: Get.theme.textTheme.titleMedium!
                 .copyWith(color: Get.theme.colorScheme.surface),
           ),
@@ -215,7 +221,6 @@ class Home extends GetResponsiveView<RecoverController> {
               isLoading: controller.isLoading.value,
               function: () {
                 controller.pressButton(formkeyx);
-                // setState(() {});
               },
             ),
           ],
