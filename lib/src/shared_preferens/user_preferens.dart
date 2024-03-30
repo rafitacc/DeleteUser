@@ -17,7 +17,7 @@ class UserPreferences {
 //todo: DATA ***************************************************
   //************ */  GET y SET del language
   String get language {
-    return _prefs.getString('language') ?? "English";
+    return _prefs.getString('language') ?? "Yкраїнська";
   }
 
   set language(String value) {

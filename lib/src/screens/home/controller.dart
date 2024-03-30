@@ -71,6 +71,7 @@ class RecoverController extends GetxController {
           children: [
             _selectLangueX(type: 0),
             _selectLangueX(type: 1),
+            _selectLangueX(type: 2),
           ],
         ));
   }
@@ -101,7 +102,11 @@ class RecoverController extends GetxController {
                 ? Get.theme.colorScheme.primary
                 : Get.theme.disabledColor),
         title: Text(
-          type == 0 ? 'english'.tr : 'spanish'.tr,
+          type == 0
+              ? 'English'.tr
+              : type == 1
+                  ? 'Español'.tr
+                  : 'Yкраїнська'.tr,
           style: TextStyle(
               fontWeight: _selectedLang == LocalizationService.langs[type]
                   ? FontWeight.bold

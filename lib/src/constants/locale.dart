@@ -37,27 +37,49 @@ const Map<String, String> esUS = {
   'controller_home_6': 'Selecciona un idioma',
 };
 
+const Map<String, String> ukUS = {
+  'home_1': 'Видалити користувача',
+  'home_2': 'Введіть свою електронну адресу, щоб видалити всі ваші дані',
+  'home_3': 'Адреса електронної пошти',
+  'home_4': 'Пароль',
+  'home_5': 'Далі',
+  'home_6': 'Підтверджена електронна адреса',
+  'home_7': 'Вашого користувача успішно видалено.',
+  'controller_home_1': 'Ви впевнені, що хочете видалити цього користувача?',
+  'controller_home_2':
+      'Натиснувши «ОК», ви видалите всі дані, пов’язані з цим користувачем.',
+  'controller_home_3': 'Ви впевнені, що хочете видалити цього користувача?',
+  'controller_home_4': 'Введіть дійсну адресу електронної пошти',
+  'controller_home_5': 'Пароль має містити принаймні один символ.',
+  'controller_home_6': 'Виберіть мову',
+};
+
 class LocalizationService extends Translations {
-  static final locale =
-      UserPreferences().language == 'English' ? Locale('en') : Locale('es');
+  static final locale = UserPreferences().language == 'English'
+      ? Locale('en')
+      : UserPreferences().language == 'Español'
+          ? Locale('es')
+          : Locale('uk');
 
-  static final fallbackLocale =
-      UserPreferences().language != 'English' ? Locale('en') : Locale('es');
+  static final fallbackLocale = UserPreferences().language != 'English'
+      ? Locale('en')
+      : UserPreferences().language == 'Español'
+          ? Locale('es')
+          : Locale('uk');
 
-  static final langs = [
-    'English',
-    'Spanish',
-  ];
+  static final langs = ['English', 'Español', 'Yкраїнська'];
 
   static final locales = [
     const Locale('en'),
     const Locale('es'),
+    const Locale('uk'),
   ];
 
   @override
   Map<String, Map<String, String>> get keys => {
         'en_US': enUS,
         'es_US': esUS,
+        'uk_US': ukUS,
       };
 
   void changeLocale(String lang) {
